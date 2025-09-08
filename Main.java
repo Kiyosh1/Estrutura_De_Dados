@@ -1,36 +1,43 @@
 public class Main {
     public static void main(String[] args) {
-        // Criando uma lista de inteiros
-        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
 
-        // Adicionando elementos no início
-        list.addFirst(10);
-        list.addFirst(20);
-        list.addFirst(30);
+        System.out.println("Exemplo 1: Inserindo elementos");
+        DoublyLinkedBase<Integer> dll = new DoublyLinkedBase<>();
 
-        // Adicionando elementos no final
-        list.addLast(40);
-        list.addLast(50);
+        DoublyLinkedBase.Node<Integer> node1 = dll.addLast(10);
+        DoublyLinkedBase.Node<Integer> node2 = dll.addLast(20);
+        DoublyLinkedBase.Node<Integer> node3 = dll.addLast(30);
+        DoublyLinkedBase.Node<Integer> node4 = dll.addLast(40);
 
-        // Exibindo o primeiro e o último elemento
-        System.out.println("Primeiro elemento: " + list.first()); // 30
-        System.out.println("Último elemento: " + list.last());    // 50
+        System.out.println("O número de elementos: " + dll.size());
+        System.out.println("Elementos na lista: " + dll.toString());
+        System.out.println();
 
-        // Removendo o primeiro elemento
-        System.out.println("Elemento removido: " + list.removeFirst()); // 30
 
-        // Exibindo o tamanho da lista
-        System.out.println("Tamanho da lista: " + list.size()); // 4
+        System.out.println("Exemplo 2: Excluindo o nó com o elemento 20");
+        dll.remove(node2);
 
-        // Verificando se a lista está vazia
-        System.out.println("A lista está vazia? " + list.isEmpty()); // false
+        System.out.println("Tamanho da lista após exclusão: " + dll.size());
+        System.out.println("Elementos restantes na lista: " + dll.toString());
+        System.out.println();
 
-        // Removendo todos os elementos
-        while (!list.isEmpty()) {
-            System.out.println("Removendo: " + list.removeFirst());
-        }
 
-        // Verificando se a lista está vazia após a remoção
-        System.out.println("A lista está vazia? " + list.isEmpty()); // true
+        System.out.println("Exemplo 3: Verificando se a lista está vazia ");
+        System.out.println("A lista está vazia? " + dll.isEmpty());
+
+        dll.remove(node1);
+        dll.remove(node3);
+        dll.remove(node4);
+
+        System.out.println("A lista está vazia após excluir todos os nós? " + dll.isEmpty());
+        System.out.println();
+        
+        
+        System.out.println("Exemplo 4: Inserindo no início e no fim");
+        dll.addFirst(40); 
+        dll.addLast(50);  
+        
+        System.out.println("Tamanho da lista: " + dll.size());
+        System.out.println("Elementos na lista: " + dll.toString());
     }
 }
